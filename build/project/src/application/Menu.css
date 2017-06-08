@@ -1,0 +1,72 @@
+.titled-pane > .title{
+  -fx-background-color:#097fc3;
+  -fx-font-weight: bold; 
+  -fx-text-fill: white;
+}
+
+.titled-pane > .title > .arrow-button .arrow{
+  -fx-background-color: white;
+  -fx-border-radius : 0;
+}
+
+.grid-pane{
+	  -fx-background-color:#097fc3;
+	
+}
+
+.root{
+	  -fx-background-color:#097fc3;
+}
+
+.label{
+	-fx-font-family: Verdana, Geneva, sans-serif;
+	-fx-font-weight: bold; 
+	-fx-text-fill: white;
+	
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+.scroll-pane > .corner {
+    -fx-background-color: #097fc3;
+}
+
+.border-pane{
+    -fx-background-color: #097fc3;
+
+}
+.pane{
+		-fx-background-color: #097fc3;
+	
+}
+
+.accordion{
+	-fx-background-color: #097fc3;
+}
+
+.text-field {
+	-fx-text-fill : white ;
+    -fx-background-color: #097fc3;
+    -fx-border-width : 0.0 0.0 2.0 0.0;
+	-fx-border-color : #69a3c4 ;
+
+}
+
+.text-field:focused {	  
+	  	-fx-border-color : white ; 
+	    
+}
+
+.button{
+
+}
+

@@ -33,12 +33,12 @@
 		</copy>
 		<copy todir="project">
 			<fileset dir="/home/jules/workspace/PasswordManagerClient">
-				<include name="src/**" />
+				<include name="res/**" />
 			</fileset>
 		</copy>
 		<copy todir="project">
 			<fileset dir="/home/jules/workspace/PasswordManagerClient">
-				<include name="res/**" />
+				<include name="src/**" />
 			</fileset>
 		</copy>
 	

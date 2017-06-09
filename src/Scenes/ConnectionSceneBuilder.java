@@ -1,21 +1,16 @@
-package application;
+package Scenes;
 
-import java.io.IOException;
-
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import application.AppMain;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -50,44 +45,35 @@ public class ConnectionSceneBuilder {
 
 		PasswordField psswdField = new PasswordField();
 		grid.add(psswdField, 1, 2);
+		
+		HBox hbox = new HBox();
+		hbox.setSpacing(10);
 
-		Label hostname = new Label("Hostname : ");
-		grid.add(hostname, 0, 3);
-
-		TextField hostnameField = new TextField();
-		grid.add(hostnameField, 1, 3);
 
 		Button connect = new Button("Connect");
-		grid.add(connect, 1, 4);
+
+		hbox.getChildren().add(connect);
 		connect.setOnAction(e -> {
 
 			spinner = new ProgressIndicator();
-
 			grid.add(spinner, 0, 4);
-			scene = MenuSceneBuilder.buildScene(userField.getText());
+			AppMain.userName=userField.getText();
+			scene = MenuSceneBuilder.buildScene(userField.getText(),primaryStage);
 			primaryStage.setScene(scene);
 		});
+		
+		Button newAccount = new Button("New Account");
+		hbox.getChildren().add(newAccount);
+		newAccount.setOnAction(e ->{
+			primaryStage.setScene(NewUserSceneBuilder.buildScene(primaryStage));
+		});
+		grid.add(hbox, 1, 4);
+
 
 		Scene scene = new Scene(grid, 400, 200);
 		scene.getStylesheets().add(AppMain.class.getResource("application.css").toExternalForm());
 		return scene;
 	}
 
-	@FXML
-	public Scene menuScene() {
-		Scene scene = null;
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource(("MenuScene.fxml")));
-			Image settingsImage = new Image(getClass().getResourceAsStream("settings.png"));
-			Button settings = new Button("", new ImageView(settingsImage));
-			root.getChildrenUnmodifiable().add(settings);
-			scene = new Scene(root, 600, 400);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return scene;
-	}
 
 }

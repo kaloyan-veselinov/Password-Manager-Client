@@ -48,5 +48,15 @@
     -fx-background-color: #097fc3;
 }
 
+.scroll-pane{
+	    -fx-background-color: #097fc3;
+	
+}
+
+.button{
+	-fx-background-color : white ;
+	-fx-background-radius : 100em;
+}
+
 
 

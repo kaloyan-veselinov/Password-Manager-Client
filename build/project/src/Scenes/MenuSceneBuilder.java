@@ -1,8 +1,8 @@
-package application;
+package Scenes;
 
 import java.util.LinkedList;
 
-
+import application.AppMain;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,10 +17,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class MenuSceneBuilder {
 
-	public static Scene buildScene(String userName) {
+	public static Scene buildScene(String userName, Stage primaryStage) {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e1) {
@@ -45,7 +46,7 @@ public class MenuSceneBuilder {
 		Accordion accordion = new Accordion();
 		accordion.setStyle("-fx-background-color: #097fc3;");
 		accordion.minWidth(centerPane.getWidth());
-		TitledPane[] content = new TitledPane[100];
+		TitledPane[] content = new TitledPane[50];
 		
 		// TODO fill with real accounts from the database
 		for (int i = 0; i < content.length; i++) {
@@ -67,6 +68,10 @@ public class MenuSceneBuilder {
 		settings.setMaxWidth(60);
 		settings.setStyle("	-fx-background-color : white; " + "-fx-background-radius : 100em; "
 				+ "-fx-text-fill: #097fc3; " + "-fx-font-weight: bold; " + "-fx-font: 20px Verdana; ");
+		
+		settings.setOnAction(e -> {
+			primaryStage.setScene(SettingsSceneBuilder.buildScene(primaryStage));
+		});
 
 		hbox.add(settings, 0, 0);
 		Button addAccount = new Button("+");
@@ -75,6 +80,9 @@ public class MenuSceneBuilder {
 		addAccount.setStyle("	-fx-background-color : white; " + "-fx-background-radius : 100em; "
 				+ "-fx-text-fill: #097fc3; " + "-fx-font-weight: bold; " + "-fx-font: 20px Verdana; ");
 		hbox.add(addAccount, 1, 0);
+		addAccount.setOnAction(e -> {
+			primaryStage.setScene(AddAccountSceneBuilder.buildScene(primaryStage));
+		});
 
 		textField.setOnKeyTyped(e -> {
 			// Used to search elements but it's slow if there are more than 100 elements. Needs a better solution.
@@ -111,6 +119,7 @@ public class MenuSceneBuilder {
 		root.setBottom(hbox);
 		Scene scene = new Scene(root, 600, 400);
 		scene.getStylesheets().add(AppMain.class.getResource("Menu.css").toExternalForm());
+		scene.getStylesheets().add(AppMain.class.getResource("application.css").toExternalForm());
 		return scene;
 	}
 

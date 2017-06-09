@@ -28,17 +28,17 @@
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="/home/jules/workspace/PasswordManagerClient">
-				<include name="Scenes/**" />
-			</fileset>
-		</copy>
-		<copy todir="project">
-			<fileset dir="/home/jules/workspace/PasswordManagerClient">
 				<include name="res/**" />
 			</fileset>
 		</copy>
 		<copy todir="project">
 			<fileset dir="/home/jules/workspace/PasswordManagerClient">
 				<include name="src/**" />
+			</fileset>
+		</copy>
+		<copy todir="project">
+			<fileset dir="/home/jules/workspace/PasswordManagerClient">
+				<include name="Scenes/**" />
 			</fileset>
 		</copy>
 	

@@ -1,17 +1,21 @@
 package application;
 	
 
+import java.util.ArrayList;
+
 import Scenes.ConnectionSceneBuilder;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 
 public class AppMain extends Application {
 	
 	public static String userName;
+	public static Scene currentMenuScene;
+	public static ArrayList<Account> accounts;
+	public static int tempNumAccount;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -26,8 +30,6 @@ public class AppMain extends Application {
 					e1.printStackTrace();
 				}
 			});
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
 			Scene connectionScene = ConnectionSceneBuilder.buildScene(primaryStage);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(connectionScene);
@@ -38,6 +40,8 @@ public class AppMain extends Application {
 	}
 	
 	public static void main(String[] args) {
+		tempNumAccount = 50;
+		accounts = new ArrayList<Account>();
 		launch(args);
 	}
 	

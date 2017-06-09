@@ -51,7 +51,10 @@ public class SettingsSceneBuilder {
 		Button cancel = new Button("Cancel");
 		hbox.getChildren().add(cancel);
 		cancel.setOnAction(e -> {
-			primaryStage.setScene(MenuSceneBuilder.buildScene(AppMain.userName, primaryStage));
+		
+				primaryStage.setScene(MenuSceneBuilder.buildScene(AppMain.userName, primaryStage));
+
+			
 		});
 
 		Button save = new Button("Save");

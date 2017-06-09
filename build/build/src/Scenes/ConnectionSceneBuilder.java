@@ -65,7 +65,8 @@ public class ConnectionSceneBuilder {
 		Button newAccount = new Button("New Account");
 		hbox.getChildren().add(newAccount);
 		newAccount.setOnAction(e ->{
-			primaryStage.setScene(NewUserSceneBuilder.buildScene(primaryStage));
+			AppMain.currentMenuScene = NewUserSceneBuilder.buildScene(primaryStage);
+			primaryStage.setScene(AppMain.currentMenuScene);
 		});
 		grid.add(hbox, 1, 4);
 
